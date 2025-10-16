@@ -58,6 +58,15 @@ export default function Home() {
           </motion.button>
         </Link>
 
+        <Link href="/contact">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="mt-6 px-6 py-3 bg-gradient-to-r from-teal-600 to-green-600 rounded-lg text-white text-lg"
+          >
+            Contact Me
+          </motion.button>
+        </Link>
+
       </div>
     </div>
   );
