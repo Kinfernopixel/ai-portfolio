@@ -48,6 +48,16 @@ export default function Home() {
             View My Journey
           </motion.button>
         </Link>
+
+        <Link href="/skills">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="mt-6 px-6 py-3 bg-gradient-to-r from-teal-600 to-green-600 rounded-lg text-white text-lg"
+          >
+            Knowledge Matrix
+          </motion.button>
+        </Link>
+
       </div>
     </div>
   );
