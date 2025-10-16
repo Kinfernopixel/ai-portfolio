@@ -1,7 +1,8 @@
+// src/app/page.js
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link'; // Import Link for navigation
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -35,6 +36,16 @@ export default function Home() {
             className="mt-8 px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-lg text-white text-lg"
           >
             Explore Projects
+          </motion.button>
+        </Link>
+
+        {/* Link to Timeline Section */}
+        <Link href="/timeline">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="mt-6 px-6 py-3 bg-gradient-to-r from-teal-600 to-green-600 rounded-lg text-white text-lg"
+          >
+            View My Journey
           </motion.button>
         </Link>
       </div>

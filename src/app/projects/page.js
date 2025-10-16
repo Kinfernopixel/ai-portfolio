@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link'; // Import Link for navigation
 
 export default function Projects() {
   const projects = [
@@ -29,6 +30,16 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
+
+      {/* Back to Landing Page Button */}
+      <Link href="/">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="mt-8 px-6 py-3 bg-gradient-to-r from-red-600 to-yellow-600 rounded-lg text-white text-lg"
+        >
+          Back to Home
+        </motion.button>
+      </Link>
     </div>
   );
 }
