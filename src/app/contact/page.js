@@ -47,14 +47,18 @@ export default function Contact() {
         </div>
       )}
 
+        {/* Back to Landing Page Button */}
+      <div className="flex justify-center mt-12">
         <Link href="/">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          className="mt-8 px-6 py-3 bg-gradient-to-r from-red-600 to-yellow-600 rounded-lg text-white text-lg"
-        >
-          Back to Home
-        </motion.button>
-      </Link>
+            <motion.button
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+            className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl text-white text-lg shadow-md hover:shadow-[0_0_20px_rgba(236,72,153,0.8)] transition-all"
+            >
+            ← Back to Home
+            </motion.button>
+        </Link>
+      </div>
     </div>
   );
 }
