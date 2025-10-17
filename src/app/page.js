@@ -67,6 +67,15 @@ export default function Home() {
           </motion.button>
         </Link>
 
+        <Link href="/KananShah_Resume_SDE.pdf" target="_blank">
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="mt-8 px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-lg text-white text-lg"
+            >
+                View My Resume
+            </motion.button>
+        </Link>
+
       </div>
     </div>
   );
