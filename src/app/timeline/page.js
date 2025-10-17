@@ -5,9 +5,11 @@ import Link from 'next/link'; // Import Link for navigation
 
 export default function Timeline() {
   const milestones = [
-    { year: '2021', title: 'Started Learning AI', description: 'Began my journey into machine learning with online courses and projects.' },
-    { year: '2022', title: 'Built AI Chatbot', description: 'Created a conversational chatbot using GPT-3 and integrated it with a website.' },
-    { year: '2023', title: 'Worked at SecureAIs', description: 'Joined SecureAIs as an AI Engineer, focused on security and compliance for AI solutions.' },
+  { year: '2021', title: 'Started College', description: 'Began my Computer Science degree at California State University.' },
+  { year: '2022', title: 'Started Learning AI', description: 'Dived into artificial intelligence through online courses, tutorials, and early experiments.' },
+  { year: '2023', title: 'Built Full-Stack Projects', description: 'Developed several web and AI-based projects to strengthen my full-stack development skills.' },
+  { year: '2024', title: 'Software Engineering Intern', description: 'Interned at the California Department of Public Health, contributing to software development projects.' },
+  { year: '2025', title: 'Joined SecureAIs', description: 'Worked as an AI Engineer focused on AI security, compliance, and automation solutions.' }
     // Add more milestones here...
   ];
 
@@ -42,7 +44,7 @@ export default function Timeline() {
             ← Back to Home
             </motion.button>
         </Link>
-      </div>
+    </div>
 
     </div>
   );
