@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link'; // Import Link for navigation
+import Link from 'next/link';
 
 export default function Projects() {
   const projects = [
@@ -12,37 +12,50 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white py-16">
-      <h2 className="text-3xl font-semibold mb-8">My Projects</h2>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black text-white py-20 px-6">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl font-bold mb-14 text-center"
+      >
+        My Projects
+      </motion.h2>
 
-      <div className="flex flex-wrap justify-center gap-10">
+      {/* Project Circles */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="w-40 h-40 flex items-center justify-center bg-gradient-to-r from-green-500 to-teal-500 rounded-full cursor-pointer hover:scale-110 transition-transform duration-300"
-            whileHover={{ scale: 1.2 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.2, duration: 0.6 }}
+            whileHover={{ scale: 1.15 }}
+            className="relative w-48 h-48 flex flex-col items-center justify-center text-center rounded-full bg-gradient-to-r from-green-500 to-teal-500 shadow-[0_0_25px_rgba(34,197,94,0.5)] hover:shadow-[0_0_45px_rgba(20,184,166,0.8)] transition-all duration-300"
           >
-            <div className="text-xl font-bold text-center">
-              <div className="mb-2">{project.name}</div>
-              <p className="text-sm">{project.description}</p>
-            </div>
+            <h3 className="text-lg font-semibold mb-2">{project.name}</h3>
+            <p className="text-sm text-gray-100 px-3">{project.description}</p>
           </motion.div>
         ))}
       </div>
 
-      {/* Back to Landing Page Button */}
-      <div className="flex justify-center mt-12">
+      {/* Back Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 }}
+        className="mt-16"
+      >
         <Link href="/">
-            <motion.button
-            whileHover={{ scale: 1.1 }}
+          <motion.button
+            whileHover={{ scale: 1.08 }}
             transition={{ duration: 0.3 }}
-            className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl text-white text-lg shadow-md hover:shadow-[0_0_20px_rgba(236,72,153,0.8)] transition-all"
-            >
+            className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl text-white text-lg font-semibold shadow-[0_0_20px_rgba(236,72,153,0.6)] hover:shadow-[0_0_30px_rgba(236,72,153,0.9)] transition-all"
+          >
             ← Back to Home
-            </motion.button>
+          </motion.button>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 }
