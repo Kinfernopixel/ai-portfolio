@@ -5,10 +5,22 @@ import Link from 'next/link';
 
 export default function Projects() {
   const projects = [
-    { name: 'AI Chatbot', description: 'A conversational AI chatbot built with GPT-3.' },
-    { name: 'Neural Network Visualizer', description: 'A web app that visualizes neural networks.' },
-    { name: 'Recommendation Engine', description: 'A personalized recommendation system using machine learning.' },
-    // Add more projects here...
+    {
+      name: 'Car Insurance Predictor',
+      description: 'Predict car insurance premiums for new drivers using machine learning and a clean web UI.',
+      url: 'https://car-insurance-predictor-ks.streamlit.app',
+    },
+    {
+      name: 'Fake News Detector',
+      description: 'Paste a news article and get an instant AI-powered prediction of whether it’s real or fake.',
+      url: 'https://fake-news-detector-flax.vercel.app',
+    },
+    {
+      name: 'Stock Price Dashboard',
+      description:
+        'A real-time stock dashboard built with React, Vite, TypeScript, and Chart.js—fetching live data from Alpha Vantage.',
+      url: 'https://stock-dashboard-vite.vercel.app',
+    },
   ];
 
   return (
@@ -22,20 +34,24 @@ export default function Projects() {
         My Projects
       </motion.h2>
 
-      {/* Project Circles */}
+      {/* Project Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14">
         {projects.map((project, index) => (
-          <motion.div
+          <motion.a
             key={index}
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.6 }}
-            whileHover={{ scale: 1.15 }}
-            className="relative w-48 h-48 flex flex-col items-center justify-center text-center rounded-full bg-gradient-to-r from-green-500 to-teal-500 shadow-[0_0_25px_rgba(34,197,94,0.5)] hover:shadow-[0_0_45px_rgba(20,184,166,0.8)] transition-all duration-300"
+            whileHover={{ scale: 1.12, rotate: 2 }}
+            whileTap={{ scale: 0.98 }}
+            className="relative w-56 h-56 flex flex-col items-center justify-center text-center rounded-full bg-gradient-to-r from-green-500 to-teal-500 shadow-[0_0_25px_rgba(34,197,94,0.4)] hover:shadow-[0_0_45px_rgba(20,184,166,0.8)] transition-all duration-300 cursor-pointer"
           >
-            <h3 className="text-lg font-semibold mb-2">{project.name}</h3>
-            <p className="text-sm text-gray-100 px-3">{project.description}</p>
-          </motion.div>
+            <h3 className="text-lg font-semibold mb-2 px-4">{project.name}</h3>
+            <p className="text-sm text-gray-100 px-4">{project.description}</p>
+          </motion.a>
         ))}
       </div>
 
