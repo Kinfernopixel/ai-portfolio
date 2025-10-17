@@ -1,64 +1,53 @@
-'use client';
-
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link'; // Import Link for navigation
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Contact() {
-  const [message, setMessage] = useState('');
-  const [emailDraft, setEmailDraft] = useState('');
-
-  const handleSendMessage = () => {
-    if (message.includes('collaborate')) {
-      setEmailDraft(`Subject: Collaboration Request\n\nHello, I would love to collaborate with you on a project!`);
-    } else {
-      setEmailDraft('Subject: Inquiry\n\nHello, I have a question regarding your work.');
-    }
-    setMessage('');
-  };
-
   return (
-    <div className="min-h-screen bg-black text-white py-16">
-      <h2 className="text-3xl font-semibold text-center mb-8">Message the System</h2>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 text-white px-6">
+      <motion.h1
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl font-bold mb-8 text-center"
+      >
+        Message the System
+      </motion.h1>
 
-      {/* Chat Input */}
-      <div className="flex flex-col items-center mb-6">
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          rows="4"
-          placeholder="Type your message here..."
-          className="w-80 p-4 mb-4 text-black rounded-lg"
-        />
+      {/* Glowing Container */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-gray-700 w-full max-w-md mx-auto text-white"
+      >
+        <form className="flex flex-col space-y-4">
+          <input
+            type="text"
+            placeholder="Enter your message..."
+            className="p-4 rounded-lg bg-gray-900/80 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300"
+          />
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-red-600 text-white rounded-lg font-semibold shadow-lg hover:shadow-[0_0_15px_rgba(255,200,0,0.5)] transition-all duration-300"
+          >
+            Send
+          </motion.button>
+        </form>
+      </motion.div>
+
+      {/* Back to Home Button */}
+      <Link href="/">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="px-6 py-3 bg-gradient-to-r from-teal-600 to-green-600 rounded-lg text-white"
-          onClick={handleSendMessage}
+          whileTap={{ scale: 0.95 }}
+          className="mt-8 px-6 py-3 bg-gradient-to-r from-red-600 to-yellow-600 rounded-lg text-white text-lg shadow-lg hover:shadow-[0_0_15px_rgba(255,150,0,0.4)] transition-all duration-300"
         >
-          Send Message
+           ← Back to Home
         </motion.button>
-      </div>
-
-      {/* Generated Email */}
-      {emailDraft && (
-        <div className="text-center bg-gradient-to-r from-yellow-500 to-red-500 rounded-lg p-6 mt-6">
-          <h3 className="text-lg font-semibold">Generated Email Draft:</h3>
-          <pre className="mt-4 whitespace-pre-wrap">{emailDraft}</pre>
-        </div>
-      )}
-
-        {/* Back to Landing Page Button */}
-      <div className="flex justify-center mt-12">
-        <Link href="/">
-            <motion.button
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-            className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl text-white text-lg shadow-md hover:shadow-[0_0_20px_rgba(236,72,153,0.8)] transition-all"
-            >
-            ← Back to Home
-            </motion.button>
-        </Link>
-      </div>
+      </Link>
     </div>
   );
 }
