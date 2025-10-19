@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { FaGithub } from 'react-icons/fa'; 
 
 export default function Projects() {
   const projects = [
@@ -60,7 +61,7 @@ export default function Projects() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
-        className="mt-16"
+        className="mt-16 flex flex-col items-center space-y-6"
       >
         <Link href="/">
           <motion.button
@@ -71,6 +72,18 @@ export default function Projects() {
             ← Back to Home
           </motion.button>
         </Link>
+
+        {/* GitHub Link */}
+        <motion.a
+          href="https://github.com/Kinfernopixel"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.1 }}
+          className="flex items-center space-x-2 text-gray-300 hover:text-white transition"
+        >
+          <FaGithub size={24} />
+          <span className="text-lg font-medium">View more on GitHub</span>
+        </motion.a>
       </motion.div>
     </div>
   );
